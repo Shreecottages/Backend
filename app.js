@@ -1,13 +1,24 @@
+require('dotenv').config()
+
 const express = require("express");
 const router = require("./routes/web");
-const connectDb = require('./db/connectdb');
+// const connectDb = require('./db/connectdb');
 const path = require('path');
 var cors = require('cors');
+const mongoose = require("mongoose");
 
 const app = express();
-const PORT = 8000;
+// const PORT = 8000;
+const PORT=process.env.PORT
 
-connectDb();
+// connectDb();
+// const mongoUri = "mongodb+srv://kishanpatel3721:kishanpatel3721@cluster0.pksifpr.mongodb.net/";
+const mongoUri=process.env.MONGO_URL
+
+const dbOptions = {
+    dbName: "ResortWebsite"
+};
+mongoose.connect(mongoUri, dbOptions).then((e)=>console.log("MongoDb Connected"));
 
 app.use(cors())
 
