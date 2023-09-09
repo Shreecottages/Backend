@@ -6,7 +6,11 @@ const router = require("./routes/web");
 const path = require('path');
 var cors = require('cors');
 const mongoose = require("mongoose");
-
+const corsOptions = {
+    origin: 'http://13.233.31.166:8000',
+    methods: ['GET','POST','PUT','DELETE']
+};
+  
 const app = express();
 // const PORT = 8000;
 const PORT=process.env.PORT
@@ -20,7 +24,7 @@ const dbOptions = {
 };
 mongoose.connect(mongoUri, dbOptions).then((e)=>console.log("MongoDb Connected"));
 
-app.use(cors())
+app.use(cors(corsOptions));
 
 app.use('/img', express.static(path.join(process.cwd(), "images")))
 
