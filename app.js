@@ -7,7 +7,7 @@ const path = require('path');
 var cors = require('cors');
 const mongoose = require("mongoose");
 const corsOptions = {
-    origin: 'http://13.233.31.166:8000',
+    origin: ['http://13.233.31.166:8000','https://www.shreecottages.com'],
     methods: ['GET','POST','PUT','DELETE'],
     Headers: ['Content-Type']
 };
