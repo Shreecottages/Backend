@@ -8,7 +8,8 @@ var cors = require('cors');
 const mongoose = require("mongoose");
 const corsOptions = {
     origin: 'http://13.233.31.166:8000',
-    methods: ['GET','POST','PUT','DELETE']
+    methods: ['GET','POST','PUT','DELETE'],
+    Headers: ['Content-Type']
 };
   
 const app = express();
